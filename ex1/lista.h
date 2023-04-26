@@ -19,6 +19,8 @@ typedef apontador Lista;
 void cria_lista(Lista *l);
 int vazia(Lista l);
 void insere(polinomio po, Lista l);
-int soma_polinomios(polinomio po, Lista l);
+int soma_polinomios(polinomio po, polinomio p1, Lista l1, Lista l2);
+void exclui(Lista *l1);
+void imprime(Lista l3);
 
 #endif
