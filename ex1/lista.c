@@ -17,17 +17,47 @@ void insere(polinomio po, Lista l){
     l->prox->p = po;
     l->prox->prox = NULL;
 }
-int soma_polinomios(polinomio po, Lista l){
-    apontador aux1;
-
-    while (aux1->prox != NULL && aux1->p.expoente != aux1->prox->p.expoente)
-    {
-        if(aux1->p.expoente != aux1->prox->p.expoente){
-            aux1 = aux1->prox;
+int soma_polinomios(polinomio po, polinomio p1, Lista l1, Lista l2){
+    apontador aux1 = l1;
+    apontador aux2 = l2;
+    polinomio p3;
+    Lista l3;
+    cria_lista(&l3);
+    apontador aux3 = l3;
+    Celula *no;
+    
+    for(; aux1->prox!= NULL; aux1=aux1->prox){
+            if(aux1->p.expoente == aux2->p.expoente){
+                
+                p3.expoente = aux1->p.expoente;
+                p3.numero = aux1->p.numero + aux2->p.numero;
+                insere(p3, l3);
+              
         }
         else{
-            int soma = aux1->p.numero + aux1->prox->p.numero;
+                p3.expoente = aux1->p.expoente;
+                p3.numero = aux1->p.numero;
+                insere(p3,l3);
+            
+                p3.expoente = aux2->p.expoente;
+                p3.numero = aux2->p.numero;
+                insere(p3,l3);
+
         }
+        }
+        
     }
     
+void exclui(Lista *l1){
+    if(*l1!=NULL){
+        Celula *no;
+            while ((*l1)!=NULL)
+            {
+                no = *l1;
+                *l1 = (*l1)->prox;
+                free(no);
+            }
+            
+    }
+    free(l1);
 }
