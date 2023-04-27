@@ -18,45 +18,6 @@ void insere(polinomio po, Lista l){
     l->prox->p = po;
     l->prox->prox = NULL;
 }
-int soma_polinomios(Lista l1, Lista l2){
-    apontador aux1 = l1;
-    apontador aux2 = l2;
-    polinomio p3;
-    Lista l3;
-    cria_lista(&l3);
-    apontador aux3 = l3;
-
-    
-    for(; aux1->prox!= NULL; aux1=aux1->prox){
-        for(; aux2->prox!= NULL; aux2=aux2->prox){ 
-            if(aux1->p.expoente == aux2->p.expoente){        
-                p3.expoente = aux1->p.expoente;
-                p3.numero = aux1->p.numero + aux2->p.numero;
-                insere(p3, l3);
-            }
-         
-        }
-     
-        // else{
-        //         p3.expoente = aux1->p.expoente;
-        //         p3.numero = aux1->p.numero;
-        //         insere(p3,l3);
-            
-        //         p3.expoente = aux2->p.expoente;
-        //         p3.numero = aux2->p.numero;
-        //         insere(p3,l3);
-
-        // }
-        
-        }
-        imprime(l3);
-    }
-void imprime(Lista l3){
-    apontador aux = l3;
-    for(; aux->prox!=NULL; aux = aux->prox){
-        printf("numero e expoente: %d %d \n", aux->p.numero, aux->p.expoente);
-    }
-}
 void exclui(Lista *l1){
     if(*l1!=NULL){
         Celula *no;
@@ -70,3 +31,51 @@ void exclui(Lista *l1){
     }
     free(l1);
 }
+void soma_polinomios(Lista l1, Lista l2){
+    apontador aux1 = l1;
+    apontador aux2 = l2;
+    polinomio p3;
+    Lista l3;
+    cria_lista(&l3);
+    apontador aux3 = l3;
+    Celula *no, *n1;
+
+
+    
+    for(; aux1->prox!= NULL; aux1=aux1->prox){
+        for(; aux2->prox!= NULL; aux2=aux2->prox){
+
+            if(aux1->p.expoente == aux2->p.expoente){   
+
+                p3.expoente = aux1->p.expoente;
+                p3.numero = aux1->p.numero + aux2->p.numero;
+                insere(p3, l3);
+                no = aux1;
+                aux1 =  aux1->prox;
+                free(no);
+
+                n1 = aux2;
+                aux2 = aux2->prox;
+                free(n1);
+  
+            }
+         
+        }
+    }
+        if(aux1->prox==NULL){
+            p3.expoente = aux1->p.expoente;
+            p3.numero = aux1->p.numero;
+            insere(p3, l3);
+            exclui(&l1);
+            }
+            else{
+                for(; aux1->prox!=NULL; aux1 = aux1->prox){
+                    p3.expoente = aux1->p.expoente;
+                    p3.numero = aux1->p.numero;
+                    insere(p3, l3);
+                }
+                exclui(&l1);
+            }
+}
+
+
