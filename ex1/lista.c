@@ -18,14 +18,14 @@ void insere(polinomio po, Lista l){
     l->prox->p = po;
     l->prox->prox = NULL;
 }
-int soma_polinomios(polinomio po, polinomio p1, Lista l1, Lista l2){
+int soma_polinomios(Lista l1, Lista l2){
     apontador aux1 = l1;
     apontador aux2 = l2;
     polinomio p3;
     Lista l3;
     cria_lista(&l3);
     apontador aux3 = l3;
-    int count = 0;
+
     
     for(; aux1->prox!= NULL; aux1=aux1->prox){
         for(; aux2->prox!= NULL; aux2=aux2->prox){ 
@@ -33,15 +33,10 @@ int soma_polinomios(polinomio po, polinomio p1, Lista l1, Lista l2){
                 p3.expoente = aux1->p.expoente;
                 p3.numero = aux1->p.numero + aux2->p.numero;
                 insere(p3, l3);
-                count++;
             }
-            if(count == 0){
-                p3.expoente = aux1->p.expoente;
-                p3.numero = aux1->p.numero;
-                insere(p3,l3);
-            }
+         
         }
-        count = 0;
+     
         // else{
         //         p3.expoente = aux1->p.expoente;
         //         p3.numero = aux1->p.numero;
