@@ -19,8 +19,9 @@ typedef apontador Lista;
 void cria_lista(Lista *l);
 int vazia(Lista l);
 void insere(polinomio po, Lista l);
-void exclui(Lista *l1);
-void soma_polinomios(Lista l1, Lista l2);
+int exclui(Lista *l1);
+int exclui_celula(Lista *l1);
+void soma_polinomios(Lista l1, Lista l2, Lista l3);
 
 
 

@@ -17,8 +17,10 @@ void insere(polinomio po, Lista l){
     l->prox = (apontador)malloc(sizeof(Celula));
     l->prox->p = po;
     l->prox->prox = NULL;
+    printf("%d %d\n", l->prox->p.numero, l->prox->p.expoente);
 }
-void exclui(Lista *l1){
+
+int exclui(Lista *l1){
     if(*l1!=NULL){
         Celula *no;
             while ((*l1)!=NULL)
@@ -27,55 +29,87 @@ void exclui(Lista *l1){
                 *l1 = (*l1)->prox;
                 free(no);
             }
-            
     }
     free(l1);
-}
-void soma_polinomios(Lista l1, Lista l2){
-    apontador aux1 = l1;
-    apontador aux2 = l2;
-    polinomio p3;
-    Lista l3;
-    cria_lista(&l3);
-    apontador aux3 = l3;
-    Celula *no, *n1;
+    if(*l1 == NULL){
+        return 1;
+    }
+    else {
+        return 0;
+    }
 
+}
+void soma_polinomios(Lista l1, Lista l2, Lista l3){
+    apontador aux1 = l1->prox;
+    apontador aux2 = l2->prox;
+    polinomio p3;
+    apontador aux3 = l3->prox;
+    //printf("%d %d\n", aux1->p.numero, aux1->p.expoente);
 
     
-    for(; aux1->prox!= NULL; aux1=aux1->prox){
-        for(; aux2->prox!= NULL; aux2=aux2->prox){
+    for(; aux1!= NULL; aux1=aux1->prox){
+        aux2 = l2->prox;
+        for(; aux2!= NULL; aux2=aux2->prox){
 
             if(aux1->p.expoente == aux2->p.expoente){   
 
                 p3.expoente = aux1->p.expoente;
                 p3.numero = aux1->p.numero + aux2->p.numero;
                 insere(p3, l3);
-                no = aux1;
-                aux1 =  aux1->prox;
-                free(no);
 
-                n1 = aux2;
-                aux2 = aux2->prox;
-                free(n1);
-  
+           
             }
-         
+            //printf("%d %d\n", aux2->p.numero, aux2->p.expoente);     
         }
+         //printf("%d %d\n", aux1->p.numero, aux1->p.expoente);
     }
-        if(aux1->prox==NULL){
+    aux1 = l1->prox;
+    aux2 = l2->prox;
+
+    if(aux3== NULL){
+        for(; aux1!= NULL; aux1=aux1->prox){
             p3.expoente = aux1->p.expoente;
             p3.numero = aux1->p.numero;
             insere(p3, l3);
-            exclui(&l1);
+    }
+     for(; aux2!= NULL; aux2=aux2->prox){
+            p3.expoente = aux2->p.expoente;
+            p3.numero = aux2->p.numero;
+            insere(p3, l3);
+    }
+       for(;aux3!=NULL; aux3=aux3->prox){
+            //printf("%d %d\n", aux3->p.numero, aux3->p.expoente);
+       }
+    }
+    else{
+      
+        for(;aux1!=NULL; aux1=aux1->prox){
+            aux3 = l3->prox;
+            for(;aux3!=NULL; aux3=aux3->prox){
+                    if(aux1->p.expoente!= aux3->p.expoente){
+                        p3.numero = aux1->p.numero;
+                        p3.expoente = aux1->p.expoente;
+                        insere(p3, l3);
+                    }
             }
-            else{
-                for(; aux1->prox!=NULL; aux1 = aux1->prox){
-                    p3.expoente = aux1->p.expoente;
-                    p3.numero = aux1->p.numero;
-                    insere(p3, l3);
-                }
-                exclui(&l1);
+        }
+        for(;aux2!=NULL; aux2=aux2->prox){
+            aux3 = l3->prox;
+            for(;aux3!=NULL; aux3=aux3->prox){
+                    if(aux2->p.expoente!= aux3->p.expoente){
+                        p3.numero = aux2->p.numero;
+                        p3.expoente = aux2->p.expoente;
+                        insere(p3, l3);
+                    }
             }
+        }
+        
+    }
+    
+     for(;aux3!=NULL; aux3=aux3->prox){
+            printf("%d %d\n", aux3->p.numero, aux3->p.expoente);
+       }
+   
 }
 
 
