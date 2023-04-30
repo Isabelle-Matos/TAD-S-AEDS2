@@ -8,28 +8,24 @@ int main(){
     cria_lista(&l1);
     cria_lista(&l2);
     cria_lista(&l3);
-
-
-
-    // printf("%d\n", vazia(l1));
-    // printf("%d\n", vazia(l2));
-    // printf("%d\n", vazia(l3));
-    // printf("\n\n");
  
-
-    p1.expoente = 2;
+    //pre-estabelecer que os polinomios estao ordenados
     p1.numero = 3;
+    p1.expoente = 4;
     insere(p1, l1);
-    p3.expoente = 5;
-    p3.numero = 3;
+
+    p3.numero = 2;
+    p3.expoente = 2;
     insere(p3, l1);
     
-    p2.expoente = 2;
     p2.numero = 1;
+    p2.expoente =4;
     insere(p2, l2);
-    p4.expoente = 7;
+
     p4.numero = 3;
+    p4.expoente = 0;
     insere(p4, l2);
+    
     printf("\n\n");
 
     soma_polinomios(l1, l2, l3);
