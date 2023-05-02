@@ -19,6 +19,9 @@ Lista *constroi(int n, int *v){
         aux = l;
         for(int i=0; i<n; i++){
             aux->info = v[i];
+           if(i==n-1){
+              break;
+           }
             aux->prox = (Lista*)malloc(sizeof(Lista));
             aux = aux->prox;  
         }
