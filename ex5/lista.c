@@ -19,9 +19,7 @@ Lista *constroi(int n, int *v){
         aux = l;
         for(int i=0; i<n; i++){
             aux->info = v[i];
-           if(i==n-1){
-              break;
-           }
+            if(i==n-1) break;
             aux->prox = (Lista*)malloc(sizeof(Lista));
             aux = aux->prox;  
         }
@@ -36,4 +34,24 @@ void imprime(Lista *l, int n){
         printf("%d\n", aux->info);
      
     
+}
+void libera_lista(Lista* l){
+    
+    if(l!=NULL){
+        Lista *no;
+        while (l !=NULL)
+        {
+            no = l;
+            l = l->prox;
+            free(no);
+        }
+        
+    }
+    free(l);
+      if(l == NULL){
+        printf("1\n");
+    }
+    else {
+        printf("0\n");
+    }
 }
