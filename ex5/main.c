@@ -9,7 +9,7 @@ int main(){
     int vet[5] = {3,8,9,5,3};
     l = constroi(5, vet);
     imprime(l,5);
-
+    libera_lista(l);
 
 
     return 0;
