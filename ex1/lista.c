@@ -20,7 +20,7 @@ void insere(polinomio po, Lista l){
     //printf("%d %d\n", l->prox->p.numero, l->prox->p.expoente);
 }
 
-int exclui(Lista *l1){
+void exclui(Lista *l1){
     if(*l1!=NULL){
         Celula *no;
             while ((*l1)!=NULL)
@@ -31,13 +31,6 @@ int exclui(Lista *l1){
             }
     }
     free(l1);
-    // if(*l1 == NULL){
-    //     return 1;
-    // }
-    // else {
-    //     return 0;
-    // }
-
 }
 int tamanho_lista(Lista *l1){
     int count = 0;
