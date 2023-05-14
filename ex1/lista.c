@@ -18,6 +18,7 @@ void insere(polinomio po, Lista l){
     l->prox->p = po;
     l->prox->prox = NULL;
 }
+
 void exclui(Lista *l){
     if(*l!=NULL){
         Celula *no;
@@ -27,6 +28,7 @@ void exclui(Lista *l){
             *l = (*l)->prox;
             free(no);
         }
+        
     }
     free(*l);
     if(*l == NULL){
@@ -56,15 +58,19 @@ apontador soma_polinomios(Lista l1, Lista l2){
                 l2 = l2->prox;
                 break;
             }
+
             if(l1->prox->p.expoente < l2->prox->p.expoente){
                 insere(l2->prox->p, l3);
             }
+
             if(l1->prox->p.expoente > l2->prox->p.expoente){
                 insere(l1->prox->p, l3);
                 break;
             }
+
             l2 = l2->prox;
         }
+
         if(l2->prox == NULL) break;
         l1 = l1->prox;
     }
