@@ -36,23 +36,21 @@ void tamanho(Lista_descritor *l){
             aux = aux->prox;
             count++;
         }
-        
     
-   
     printf("O tamanho da lista eh %d\n", count);
     }
 }
 void exclui(Lista_descritor *l){
     apontador aux;
-    apontador q;
     aux = l->primeiro->prox;
-    while ((aux!=NULL))
+    while (aux!=NULL)
     {
         l->primeiro->prox = l->primeiro->prox->prox;
         free(aux);
         aux = l->primeiro->prox;
+     
     }
-    //nao está excluindo a lista
     free(l->primeiro);
+ 
    
 }

@@ -54,7 +54,6 @@ void intersecao(Lista l1, Lista l2){
                 info3.c = aux1->info.c;
                 info3.numero = aux2->info.numero;
                 insere(l3, info3);
-                //printf("%c %d\n", aux2->info.c, aux2->info.numero);
             }
         }
     }

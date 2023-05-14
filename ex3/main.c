@@ -1,6 +1,6 @@
 #include "lista.h"
 #include <stdio.h>
-//lista simplesmente encadeada com descritor
+
 int main(){
 
     Lista_descritor l1;

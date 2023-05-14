@@ -37,9 +37,24 @@ void tamanho(Lista l){
             aux = aux->prox;
             count++;
         }
-        
-    
-   
     printf("O tamanho da lista eh %d\n", count);
+    }
+}
+int exclui(Lista *l){
+    if(*l!=NULL){
+        celula *no;
+        while ((*l)!=NULL)
+        {
+            no = *l;
+            *l = (*l)->prox;
+            free(no);
+        } 
+    }
+    free(l);
+    if(*l == NULL){
+        return 1;
+    }
+    else {
+        return 0;
     }
 }

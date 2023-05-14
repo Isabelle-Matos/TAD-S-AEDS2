@@ -1,6 +1,6 @@
 #ifndef LISTA_H
 #define LISTA_H
-
+//lista simplesmente encadeada sem descritor
 typedef struct Celula_str *apontador;
 
 typedef struct{

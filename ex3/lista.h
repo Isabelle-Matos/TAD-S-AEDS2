@@ -1,6 +1,6 @@
 #ifndef LISTA_H
 #define LISTA_H
-
+//lista simplesmente encadeada com descritor
 typedef struct celula_str *apontador;
 typedef struct {
     int numeros;
@@ -17,7 +17,6 @@ typedef struct{
     apontador primeiro, ultimo;
 
 }Lista_descritor;
-
 
 
 void cria_lista(Lista_descritor *l);

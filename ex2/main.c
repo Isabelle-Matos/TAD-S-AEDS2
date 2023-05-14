@@ -1,6 +1,6 @@
 #include "lista.h"
 #include <stdio.h>
-//lista simplesmente encadeada sem descritor
+
 int main(){
 
     Lista l1;
@@ -15,6 +15,7 @@ int main(){
 
     imprime(l1);
     tamanho(l1);
+    printf("%d\n",exclui(&l1));
     
 
 
